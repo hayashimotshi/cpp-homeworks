@@ -9,7 +9,7 @@ void wc(FILE *file) {
             buff == '\v') {
             wordcounter++;
         }
-        if ((char)buff == '\n') {
+        if (buff == '\n') {
             strcounter++;
         }
     }
