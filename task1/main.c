@@ -17,16 +17,16 @@ void wc(FILE *file) {
 }
 
 int main(int argc, char *argv[]) {
+    FILE *file = stdin;
     if (argc > 1) {
-        FILE *file = fopen(argv[1], "r");
+        file = fopen(argv[1], "r");
         if (!file) {
             fprintf(stderr, "Error: Invalid file name\n");
             return 1;
         }
-        wc(file);
-        fclose(file);
     }
-    if (argc == 1) {
-        wc(stdin);
+    wc(file);
+    if (file != stdin) {
+       fclose(file);
     }
 }
